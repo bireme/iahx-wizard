@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   app:
-    container_name: wizard
+    container_name: iahx-wizard
     build:
       context: .
       target: dev

@@ -42,7 +42,7 @@ RUN addgroup -S appuser && adduser -S appuser -G appuser
 RUN mkdir /app/static_files
 
 # copy project
-COPY ./bireme/ /app/
+COPY ./app/ /app/
 
 # chown all the files to the app user
 RUN chown -R appuser:appuser /app/
