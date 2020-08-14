@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  app:
+    container_name: wizard
+    build:
+      context: .
+      target: dev
+    expose:
+      - 8000
+    volumes:
+      - ./app/:/app/
+    env_file:
+      - ./conf/app-env-dev
+    command: gunicorn --workers 2 --bind 0.0.0.0:8000 wizard.wsgi --reload --timeout 1000 --log-level DEBUG
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true

@@ -1,0 +1,9 @@
+{% extends "rest_framework/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block branding %}
+    <a class="navbar-brand" rel="nofollow" href="#">
+        {% trans 'Wizard API' %}
+    </a>
+{% endblock %}
