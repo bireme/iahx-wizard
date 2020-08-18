@@ -18,7 +18,7 @@ class OptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Option
-        fields = ['label', 'language', 'group', 'language', 'translations']
+        fields = ['label', 'language', 'group', 'filter_query', 'language', 'translations']
 
 class StepLocalSerializer(serializers.ModelSerializer):
     class Meta:
