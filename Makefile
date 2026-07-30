@@ -13,58 +13,58 @@ tag:
 
 ## docker-compose desenvolvimento
 dev_build:
-	@docker-compose -f $(COMPOSE_FILE_DEV) build
+	@docker compose -f $(COMPOSE_FILE_DEV) build
 
 dev_up:
-	@docker-compose -f $(COMPOSE_FILE_DEV) up -d
+	@docker compose -f $(COMPOSE_FILE_DEV) up -d
 
 dev_run:
-	@docker-compose -f $(COMPOSE_FILE_DEV) up
+	@docker compose -f $(COMPOSE_FILE_DEV) up
 
 dev_logs:
-	@docker-compose -f $(COMPOSE_FILE_DEV) logs -f
+	@docker compose -f $(COMPOSE_FILE_DEV) logs -f
 
 dev_stop:
-	@docker-compose -f $(COMPOSE_FILE_DEV) stop
+	@docker compose -f $(COMPOSE_FILE_DEV) stop
 
 dev_ps:
-	@docker-compose -f $(COMPOSE_FILE_DEV) ps
+	@docker compose -f $(COMPOSE_FILE_DEV) ps
 
 dev_rm:
-	@docker-compose -f $(COMPOSE_FILE_DEV) rm -f
+	@docker compose -f $(COMPOSE_FILE_DEV) rm -f
 
 dev_exec_shell:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_wizard sh
+	@docker compose -f $(COMPOSE_FILE_DEV) exec app_wizard sh
 
 dev_make_test:
-	@docker-compose -f $(COMPOSE_FILE_DEV) exec app_wizard make test
+	@docker compose -f $(COMPOSE_FILE_DEV) exec app_wizard make test
 
 
 ## docker-compose API
 prod_build:
-	@docker-compose --compatibility build
+	@docker compose --compatibility build
 	@docker tag $(IMAGE_TAG) $(TAG_LATEST)
 
 prod_up:
-	@docker-compose --compatibility up -d
+	@docker compose --compatibility up -d
 
 prod_logs:
-	@docker-compose --compatibility logs -f
+	@docker compose --compatibility logs -f
 
 prod_stop:
-	@docker-compose --compatibility stop
+	@docker compose --compatibility stop
 
 prod_ps:
-	@docker-compose --compatibility ps
+	@docker compose --compatibility ps
 
 prod_exec_shell:
-	@docker-compose --compatibility exec app_wizard sh
+	@docker compose --compatibility exec app_wizard sh
 
 prod_exec_collectstatic:
-	@docker-compose --compatibility exec -T app_wizard python manage.py collectstatic --noinput
+	@docker compose --compatibility exec -T app_wizard python manage.py collectstatic --noinput
 
 prod_exec_webserver:
-	@docker-compose --compatibility exec -T webserver sh
+	@docker compose --compatibility exec -T webserver sh
 
 prod_make_test:
-	@docker-compose --compatibility exec -T app_wizard make test
+	@docker compose --compatibility exec -T app_wizard make test
